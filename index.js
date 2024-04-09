@@ -29,7 +29,7 @@ const Vehicle = mongoose.model("Vehicles",vehicleSchema);
 const server = express();
 server.use(express.json());
 server.use(express.static(path.join(path.resolve(),"public")));
-server.set("view engine","ejs");
+
 server.use(express.urlencoded({extended:true}));
 server.use(cors({
     origin:[process.env.FRONTEND_URL],
@@ -37,9 +37,6 @@ server.use(cors({
     credentials:true,
 }))
 
-server.get("/",(req,res)=>{
-    res.render("home.ejs");
-})
 
 server.post("/filter",async(req,res)=>{
     try{
