@@ -32,7 +32,7 @@ server.use(express.static(path.join(path.resolve(),"public")));
 
 server.use(express.urlencoded({extended:true}));
 server.use(cors({
-    origin:[process.env.FRONTEND_URL],
+    origin:["http://localhost:5173"],
     methods:["GET","POST"],
     credentials:true,
 }))
