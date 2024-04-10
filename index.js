@@ -32,7 +32,7 @@ server.use(express.static(path.join(path.resolve(),"public")));
 
 server.use(express.urlencoded({extended:true}));
 server.use(cors({
-    origin:["https://eclectic-buttercream-6da216.netlify.app"], // remove all unnecessary console.log
+    origin:["https://nandeshboyz-dashboard.netlify.app"], // remove all unnecessary console.log
     methods:["GET","POST"],
     credentials:true,
 }))
@@ -41,7 +41,7 @@ server.use(cors({
 server.post("/filter",async(req,res)=>{
     try{
         const { frequency, timeFrame } = req.body;
-        console.log(req.body);
+        //console.log(req.body);
 
         let message = `Filtered successfully for ${frequency} on ${timeFrame} but no data found.`;
         if(frequency=="daily"){
@@ -71,8 +71,8 @@ server.post("/filter",async(req,res)=>{
             }
             endDate.setDate(endDate.getDate()-1);
             const daysBetween = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24))+1;
-            console.log(startDate);
-            console.log(endDate);
+            // console.log(startDate);
+            // console.log(endDate);
             const vehicles = await Vehicle.find({
                 Date: { $gte: startDate, $lte: endDate }
             });
@@ -88,7 +88,7 @@ server.post("/filter",async(req,res)=>{
             }
         }
     }catch(error){
-        console.error("Error fetching vehicles:", error);
+        //console.error("Error fetching vehicles:", error);
         return res.status(500).send("Internal Server Error");
     }
 })
