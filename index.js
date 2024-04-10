@@ -32,7 +32,7 @@ server.use(express.static(path.join(path.resolve(),"public")));
 
 server.use(express.urlencoded({extended:true}));
 server.use(cors({
-    origin:["http://localhost:5173"],
+    origin:["https://eclectic-buttercream-6da216.netlify.app"], // remove all unnecessary console.log
     methods:["GET","POST"],
     credentials:true,
 }))
